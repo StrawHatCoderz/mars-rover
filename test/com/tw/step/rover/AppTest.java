@@ -20,6 +20,6 @@ class AppTest {
             System.setOut(originalOut);
         }
 
-        assertEquals("0 2 W LOST" + System.lineSeparator(), output.toString());
+        assertEquals("3 4 E\n5 3 E LOST" + System.lineSeparator(), output.toString());
     }
 }

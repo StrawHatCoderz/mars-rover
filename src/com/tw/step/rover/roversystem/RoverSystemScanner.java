@@ -4,6 +4,8 @@ import com.tw.step.rover.commands.RoverCommands;
 import com.tw.step.rover.position.Coordinate;
 import com.tw.step.rover.position.Direction;
 
+import java.util.Arrays;
+
 public class RoverSystemScanner {
     private final String[] tokens;
     private int currentIndex;
@@ -47,5 +49,19 @@ public class RoverSystemScanner {
 
     public Direction scanDirection() {
         return Direction.valueOf(this.consume());
+    }
+
+    public int roversCount() {
+        return Arrays.stream(this.tokens).filter(token -> token.contains(":")).toArray().length;
+    }
+
+    public String getRoverId() {
+        String rawRoverId = this.consume();
+
+        if (!rawRoverId.contains(":")) {
+            return rawRoverId;
+        }
+
+        return rawRoverId.split(":")[0];
     }
 }
