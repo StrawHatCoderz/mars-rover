@@ -42,6 +42,6 @@ class LiveRoverStateTest {
         RoverState nextState = state.move(Navigator.create(), new Plateau(new Coordinate(0, 0), new Coordinate(2, 2)));
 
         assertInstanceOf(DeadRoverState.class, nextState);
-        assertEquals("5 5 N", rover.toString());
+        assertEquals("5 5 N LOST", rover.toString());
     }
 }

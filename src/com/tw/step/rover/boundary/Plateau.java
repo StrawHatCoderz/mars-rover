@@ -11,6 +11,10 @@ public class Plateau implements Boundary {
         this.topRight = topRight;
     }
 
+    public Plateau(Coordinate topRight) {
+        this(new Coordinate(0, 0), topRight);
+    }
+
     @Override
     public boolean isWithin(Coordinate coord) {
         return coord.isWithin(bottomLeft,topRight);

@@ -13,6 +13,7 @@ class DeadRoverStateTest {
     @Test
     void shouldIgnoreAllCommands() {
         Rover rover = new Rover(new Coordinate(1, 1), Direction.N);
+        rover.markDead();
         DeadRoverState state = new DeadRoverState(rover);
         Navigator navigator = Navigator.create();
         InfinitePlateau boundary = new InfinitePlateau();
@@ -20,6 +21,6 @@ class DeadRoverStateTest {
         assertSame(state, state.turnLeft(navigator, boundary));
         assertSame(state, state.turnRight(navigator, boundary));
         assertSame(state, state.move(navigator, boundary));
-        assertEquals("1 1 N", rover.toString());
+        assertEquals("1 1 N LOST", rover.toString());
     }
 }
