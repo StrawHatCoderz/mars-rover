@@ -40,7 +40,7 @@ public class Navigator {
     public Direction rightOf(Direction direction) {
         return rights.get(direction);
     }
-    
+
     public static Navigator create() {
         if(NAVIGATOR != null) return NAVIGATOR;
         NAVIGATOR = new Navigator();
